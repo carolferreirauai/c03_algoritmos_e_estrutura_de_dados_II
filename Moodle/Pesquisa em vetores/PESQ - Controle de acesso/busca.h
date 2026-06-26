@@ -1,0 +1,1 @@
+int binaria(int vetor[],int tamanho, int x);

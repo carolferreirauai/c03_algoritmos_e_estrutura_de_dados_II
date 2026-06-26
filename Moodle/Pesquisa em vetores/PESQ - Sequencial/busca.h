@@ -1,0 +1,1 @@
+int sequencial(int vetor[], int tamanho, int x);

@@ -31,7 +31,7 @@ void insercaodireta(int vetor[], int tamanho)
 
         //o loop enquanto não chegar no início do vetor (i >= 0)
         // o elemento atual for maior que a chave
-        while ((i >= 0) && (vetor[i] > chave))
+        while ((i >= 0) && (vetor[i] < chave)) //ajustar para descrescente
         {
             //empurra o elemento grande uma posição a direita
             vetor[i + 1] = vetor[i];
@@ -48,7 +48,7 @@ int main()
 {
     //declaração de váriaveis
     int numeros; //numeros inteiros
-    int vetor[105];
+    int vetor[100];
     int tamanho = 0;
 
     //entrada de dados
@@ -67,12 +67,7 @@ int main()
     //imprime os números 
     for(int i = 0; i < tamanho; i++)
     {
-        cout << vetor[i];
-
-        if(i < tamanho - 1)
-        {
-            cout << " ";
-        }
+        cout << vetor[i] << " ";
     }
 
     cout << endl;

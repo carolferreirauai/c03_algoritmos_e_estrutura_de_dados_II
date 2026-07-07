@@ -16,3 +16,74 @@ SE FOR 2, VOCÊ DEVERÁ PEGAR UM ELEMENTO DO ESTOQUE E COLOCÁ-LO PARA VENDA.
 
 SAÍDA: A SAÍDA DEVERÁ MOSTRAR QUAIS ELEMENTOS ESTÃO NO ESTOQUE E QUAIS ESTÃO DISPONÍVEIS PARA VENDA.
 */
+//biblioteca
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+//função principal
+int main()
+{
+    //declaração de variaveis
+    list<int> produto_estoque;
+    list<int> produto_vendas;
+    int N; //números de operação
+    int operacao; //qual operacao
+    int codigo; //codigo do produto
+    list<int>::iterator p; //ponteiro
+
+    //entrada de dados
+    cin >> N; //ler as quantidades de operações
+
+    //desenvolvimento
+    for (int i = 0; i < N; i++)
+    {
+        cin >> operacao; //1 ou 2
+        
+        if(operacao == 1)
+        {
+            //primeiro adiciona ele no estoque
+            cin >> codigo; //ler o código
+            produto_estoque.push_back(codigo); //inseri na lista do estoque forma pilhas
+        }
+        else if (operacao == 2)
+        {
+            //depois movido para venda
+            if(!produto_estoque.empty()) //se tiver elementos
+            {
+                codigo = produto_estoque.front(); //primeiro produto do estoque
+                produto_estoque.pop_front(); //remove o produto do inicio
+                produto_vendas.push_front(codigo); //adiciona o produto na lista de vendas
+            }
+        }
+    }
+
+    //saída de dados
+    cout << "Estoque: ";
+    //ler a lista
+    for(p = produto_estoque.begin(); p != produto_estoque.end(); p++)
+    {
+        cout << *p << " ";
+    }
+    cout << endl;
+
+    cout << "Venda: ";
+    for(p = produto_vendas.begin(); p != produto_vendas.end(); p++)
+    {
+        cout << *p << " ";
+    }
+    cout << endl;
+
+    //liberar memória
+    while(!produto_estoque.empty())
+    {
+        produto_estoque.pop_front();
+    }
+    
+    while(!produto_vendas.empty())
+    {
+        produto_vendas.pop_front();
+    }
+    return 0;
+}

@@ -21,6 +21,7 @@ int main()
     //declaração de variaveis
     int valores;
     list<int> fila;
+    list<int>::iterator p_aux;
 
     //entrada de dados
     //ler 4 valores inteiros e inserir em uma lista
@@ -29,15 +30,18 @@ int main()
         cin >> valores;
         fila.push_back(valores);
     }
+   //desenvolvimento e saída de dados
+    for (p_aux = fila.begin(); p_aux != fila.end(); p_aux++)
+    {
+        cout << *p_aux << " "; //mostrando na tela
+    }
 
-    //desenvolvimento e saída de dados
-    //o laço continua rodando enquanto a fila não estiver vazia
+    //liberar memória
     while(!fila.empty())
     {
-        valores = *fila.begin(); //ler o inicio da fila
-        cout << valores << " "; //mostrando na tela
         fila.pop_front(); //removendo da tela
     }
-    cout << endl;
+    
     return 0;
 }
+ 

@@ -19,6 +19,7 @@ int main()
     //declaração de variaveis
     int valores;
     list<int> pilha; //cria a nossa pilha baseada em lista
+    list<int>::iterator p_aux;
 
     //entrada de dados
     //ler o valores e inseri em uma pilha
@@ -29,16 +30,16 @@ int main()
     }
 
     //desenvolvimento e saída de dados
-    //o laço continua rodando enquanto a pilha (! - não) estiver vazia.
+    for (p_aux = pilha.begin(); p_aux != pilha.end(); p_aux++)
+    {
+        cout << *p_aux << " ";
+    }
+
+    //liberar a memória
     while(!pilha.empty())
     {
-        valores = *pilha.begin(); //ler o topo
-
-        cout << valores << " ";
-
-        pilha.pop_front(); //desempilhar
+        pilha.pop_front();
     }
-    cout << endl;
 
     return 0;
 }

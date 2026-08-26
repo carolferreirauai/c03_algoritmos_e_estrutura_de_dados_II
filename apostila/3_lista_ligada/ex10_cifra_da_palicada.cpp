@@ -105,6 +105,7 @@ int main()
     //entrada de dados
     cin >> n >> comp;
 
+    //chamar a função circular
     gerar_sequencia(n, comp);
 
     return 0;
